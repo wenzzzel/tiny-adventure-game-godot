@@ -27,6 +27,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="godot-learning"
 
+[global_group]
+
+enemy=""
+
 [input]
 
 move_left={
