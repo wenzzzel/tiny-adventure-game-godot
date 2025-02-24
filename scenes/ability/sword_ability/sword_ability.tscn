@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://caiop1khi042d"]
+[gd_scene load_steps=8 format=3 uid="uid://caiop1khi042d"]
 
 [ext_resource type="Texture2D" uid="uid://5wolqnvcg6xh" path="res://scenes/ability/sword_ability/sword.png" id="1_ubbg3"]
+[ext_resource type="Script" path="res://scenes/ability/sword_ability/sword_ability.gd" id="1_w5e0o"]
+[ext_resource type="PackedScene" uid="uid://dvn621c1pv3bm" path="res://scenes/component/hitbox_component.tscn" id="2_aokmh"]
 
 [sub_resource type="Animation" id="Animation_iyytp"]
 length = 0.001
@@ -31,7 +33,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -86,7 +88,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -102,10 +104,11 @@ _data = {
 "swing": SubResource("Animation_ic3wa")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpeo5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4fbm"]
 size = Vector2(12.125, 15.5)
 
 [node name="SwordAbility" type="Node2D"]
+script = ExtResource("1_w5e0o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -117,12 +120,10 @@ autoplay = "swing"
 texture = ExtResource("1_ubbg3")
 offset = Vector2(0, -3)
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 0
+[node name="HitboxComponent" parent="." instance=ExtResource("2_aokmh")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(9, 0)
-scale = Vector2(1.5, 2.778)
-shape = SubResource("RectangleShape2D_hpeo5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(6, 0)
+scale = Vector2(1.08, 2)
+shape = SubResource("RectangleShape2D_b4fbm")
 disabled = true
