@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b4032lkyu2ipa"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_4pkpl"]
+
+[resource]
+script = ExtResource("1_4pkpl")
+id = "sword_rate"
+name = "Sword Quickness"
+description = "Increases sword attack rate by 10%."
