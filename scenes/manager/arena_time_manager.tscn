@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://wlbau2g7eovr"]
+[gd_scene load_steps=4 format=3 uid="uid://wlbau2g7eovr"]
 
 [ext_resource type="Script" path="res://scenes/manager/arena_time_manager.gd" id="1_lg11g"]
+[ext_resource type="PackedScene" uid="uid://dexxrllp3ynw6" path="res://scenes/ui/end_screen.tscn" id="2_62il2"]
 
 [sub_resource type="GDScript" id="GDScript_i2hbj"]
 script/source = "extends Timer
@@ -8,9 +9,10 @@ script/source = "extends Timer
 
 [node name="ArenaTimeManager" type="Node"]
 script = ExtResource("1_lg11g")
+end_screen_scene = ExtResource("2_62il2")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 60.0
 one_shot = true
 autostart = true
 script = SubResource("GDScript_i2hbj")
